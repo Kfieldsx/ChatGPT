@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vini Vidi Cogitavi | Partisan-Free Campaign Debates</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --bg: #0f172a;
+      --panel: rgba(255, 255, 255, 0.04);
+      --highlight: #22c55e;
+      --accent: #7dd3fc;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --border: rgba(255, 255, 255, 0.08);
+      --shadow: 0 20px 70px rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: radial-gradient(circle at 20% 20%, rgba(34, 197, 94, 0.08), transparent 35%),
+        radial-gradient(circle at 80% 20%, rgba(125, 211, 252, 0.1), transparent 40%),
+        var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(12px);
+      background: rgba(15, 23, 42, 0.8);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 5vw;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+
+    .brand span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, #22c55e, #7dd3fc);
+      color: #0f172a;
+      border-radius: 10px;
+      font-weight: 800;
+      box-shadow: var(--shadow);
+    }
+
+    nav ul {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      padding: 10px 12px;
+      border-radius: 10px;
+      font-weight: 600;
+      color: var(--muted);
+      transition: color 0.2s ease, background 0.2s ease;
+    }
+
+    nav a:hover,
+    nav a:focus-visible {
+      color: var(--text);
+      background: var(--panel);
+      outline: none;
+    }
+
+    .cta-btn {
+      background: linear-gradient(135deg, #22c55e, #14b8a6);
+      color: #0b1224;
+      padding: 10px 16px;
+      border-radius: 12px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .cta-btn:hover,
+    .cta-btn:focus-visible {
+      transform: translateY(-1px);
+      box-shadow: 0 15px 40px rgba(34, 197, 94, 0.35);
+      outline: none;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 48px 5vw 64px;
+      display: flex;
+      flex-direction: column;
+      gap: 44px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+      align-items: center;
+      background: linear-gradient(120deg, rgba(34, 197, 94, 0.08), rgba(125, 211, 252, 0.07));
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 46px);
+      margin: 0 0 16px;
+      line-height: 1.1;
+    }
+
+    .hero p {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .pill {
+      padding: 8px 12px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .panel-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.28);
+    }
+
+    .panel h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+
+    .panel p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .status-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    .step {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 14px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+    }
+
+    .step span {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: #1e293b;
+      color: var(--accent);
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+    }
+
+    .campaign-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      align-items: center;
+      background: linear-gradient(135deg, rgba(125, 211, 252, 0.1), rgba(34, 197, 94, 0.1));
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 20px;
+    }
+
+    .campaign-card h2 {
+      margin: 0 0 10px;
+    }
+
+    .campaign-card p {
+      margin: 0 0 12px;
+      color: var(--muted);
+    }
+
+    .campaign-card .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    select {
+      background: #0b1224;
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px;
+      min-width: 200px;
+      font-weight: 600;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    }
+
+    .blog-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .blog-card {
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      padding: 14px 16px;
+      background: rgba(255, 255, 255, 0.02);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .blog-card h4 {
+      margin: 0;
+    }
+
+    .blog-card small {
+      color: var(--muted);
+      letter-spacing: 0.2px;
+    }
+
+    footer {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 32px 5vw 48px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .footer-grid ul {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0 0;
+      display: grid;
+      gap: 8px;
+    }
+
+    .footer-grid a:hover,
+    .footer-grid a:focus-visible {
+      color: var(--text);
+      outline: none;
+    }
+
+    @media (max-width: 720px) {
+      nav ul {
+        display: none;
+      }
+
+      .campaign-card {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-bar">
+      <div class="brand" aria-label="Vini Vidi Cogitavi">
+        <span>V</span>
+        <div>
+          Vini Vidi Cogitavi
+          <div style="color: var(--muted); font-weight: 600; font-size: 13px;">Partisan-free campaign debates</div>
+        </div>
+      </div>
+      <nav aria-label="Primary navigation">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#campaigns">Campaigns</a></li>
+          <li><a href="#debates">Live Debates</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="cta-btn">Start Exploring</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div>
+        <h1>Vini Vidi Cogitavi</h1>
+        <p>
+          A partisan-free arena to debate issues live for upcoming campaigns. Choose the races that matter to you,
+          understand every perspective, and earn deeper participation by confirming residency in the districts you
+          represent.
+        </p>
+        <div class="pill-row">
+          <div class="pill">Neutral moderation</div>
+          <div class="pill">Live campaign rooms</div>
+          <div class="pill">Residency-based participation</div>
+          <div class="pill">Issue-first conversations</div>
+        </div>
+      </div>
+      <div class="panel">
+        <h3>Your path to the debate</h3>
+        <p>Move from observer to contributor with transparent checkpoints.</p>
+        <div class="status-list">
+          <div class="step">
+            <span>1</span>
+            <div>
+              <strong>Follow a campaign</strong>
+              <p>Pick the races you care about and get live schedules, prompts, and fact sheets.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span>2</span>
+            <div>
+              <strong>Verify residency</strong>
+              <p>Confirm eligibility securely to unlock polls, moderated comments, and questions.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span>3</span>
+            <div>
+              <strong>Join the debate</strong>
+              <p>Earn speaking queues, submit proposals, and collaborate with neighbors in real time.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel-grid" id="debates">
+      <div class="panel">
+        <h3>Live debates</h3>
+        <p>Scheduled forums with timed responses, cross-examination, and fact checks to keep the focus on ideas.</p>
+      </div>
+      <div class="panel">
+        <h3>Issue channels</h3>
+        <p>Topic rooms for education, housing, safety, climate, and local priorities with moderated prompts.</p>
+      </div>
+      <div class="panel">
+        <h3>Participation tiers</h3>
+        <p>Start as an observer, add comments with verified residency, and progress to panelist status with reputation.</p>
+      </div>
+      <div class="panel">
+        <h3>Resources &amp; archives</h3>
+        <p>Access transcripts, candidate statements, and source-backed research for every campaign and debate.</p>
+      </div>
+    </section>
+
+    <section class="campaign-card" id="campaigns">
+      <div>
+        <h2>Select a campaign</h2>
+        <p>Follow the debates tied to your ballot. Confirm residency to participate progressively and keep the room
+          authentic.</p>
+        <div class="controls">
+          <label for="campaign-select" class="sr-only">Choose a campaign</label>
+          <select id="campaign-select" name="campaign-select">
+            <option>City Council District 4</option>
+            <option>State Senate 12</option>
+            <option>Governor 2024</option>
+            <option>School Board Zone A</option>
+          </select>
+          <button class="cta-btn">View debate room</button>
+          <button class="cta-btn" style="background: linear-gradient(135deg, #7dd3fc, #60a5fa);">Verify residency</button>
+        </div>
+      </div>
+      <div class="panel" style="background: rgba(15, 23, 42, 0.9);">
+        <h3>Progressive participation</h3>
+        <p style="margin-bottom: 12px;">Earn new capabilities as you prove you are part of the community impacted by
+          the campaign.</p>
+        <ul style="padding-left: 18px; margin: 0; display: grid; gap: 8px; color: var(--muted);">
+          <li>Observer: follow agendas, view live streams, bookmark issues.</li>
+          <li>Contributor: vote in polls, add moderated comments, submit questions.</li>
+          <li>Delegate: join structured debate rotations, propose solutions, coauthor statements.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="panel" id="blog">
+      <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;">
+        <div>
+          <h3 style="margin: 0;">Latest from the blog</h3>
+          <p style="margin: 4px 0 0; color: var(--muted);">Standard navigation includes Home, Campaigns, Debates, Blog,
+            About, and Contact for quick context.</p>
+        </div>
+        <a class="cta-btn" href="#blog">View all posts</a>
+      </div>
+      <div class="blog-list" style="margin-top: 18px;">
+        <div class="blog-card">
+          <small>Guides · 4 min read</small>
+          <h4>How residency unlocks meaningful participation</h4>
+          <p style="margin: 0; color: var(--muted);">Progressive verification keeps the debate local while welcoming
+            broad listening.</p>
+        </div>
+        <div class="blog-card">
+          <small>Updates · 3 min read</small>
+          <h4>New live debate queues for campaign rooms</h4>
+          <p style="margin: 0; color: var(--muted);">Structured turns and fact-backed prompts keep conversations clear
+            and respectful.</p>
+        </div>
+        <div class="blog-card">
+          <small>Perspectives · 5 min read</small>
+          <h4>Designing a partisan-free civic square</h4>
+          <p style="margin: 0; color: var(--muted);">What neutrality means for moderators, candidates, and community
+            members alike.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel-grid" id="about">
+      <div class="panel">
+        <h3>Why Vini Vidi Cogitavi?</h3>
+        <p>We came. We saw. We thought. A forum built to elevate evidence, reduce noise, and empower campaigns with an
+          engaged, local audience.</p>
+      </div>
+      <div class="panel">
+        <h3>Safety &amp; standards</h3>
+        <p>Transparent moderation rules, identity protection, and respectful dialogue codes keep debates productive.</p>
+      </div>
+      <div class="panel">
+        <h3>Accessibility</h3>
+        <p>Captions, transcripts, and screen reader friendly markup ensure debates are open to everyone.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div class="footer-grid">
+      <div>
+        <div class="brand" style="margin-bottom: 8px;">
+          <span>V</span>
+          <div>
+            Vini Vidi Cogitavi
+            <div style="color: var(--muted); font-weight: 600; font-size: 13px;">Debate the issues, not the party.</div>
+          </div>
+        </div>
+        <p style="margin: 0;">A home for live, partisan-free debate across every campaign on your ballot.</p>
+      </div>
+      <div>
+        <strong>Explore</strong>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#campaigns">Campaigns</a></li>
+          <li><a href="#debates">Live Debates</a></li>
+          <li><a href="#blog">Blog</a></li>
+        </ul>
+      </div>
+      <div>
+        <strong>About</strong>
+        <ul>
+          <li><a href="#about">Our approach</a></li>
+          <li><a href="#">Community standards</a></li>
+          <li><a href="#">Moderation policy</a></li>
+          <li><a href="#">Accessibility</a></li>
+        </ul>
+      </div>
+      <div>
+        <strong>Contact</strong>
+        <ul>
+          <li><a href="mailto:hello@vinividicogitavi.example">Email</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">Support</a></li>
+          <li><a href="#">Privacy</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
