@@ -1,0 +1,176 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vini Vidi Cogitavi</title>
+    <meta name="description" content="Nonpartisan civic debate platform" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <section class="mission-hero">
+        <div class="container">
+          <div class="mission-card">
+            <div class="logo" aria-hidden="true">
+              <svg viewBox="0 0 120 120" role="img">
+                <defs>
+                  <linearGradient id="coin" x1="0" x2="1">
+                    <stop offset="0" stop-color="#f6e2a4" />
+                    <stop offset="1" stop-color="#c79d4c" />
+                  </linearGradient>
+                </defs>
+                <circle cx="60" cy="60" r="52" fill="url(#coin)" />
+                <circle cx="60" cy="60" r="46" fill="none" stroke="#8c6a2b" stroke-width="3" />
+                <text x="60" y="62" text-anchor="middle" font-size="34" font-family="Garamond, 'Bookman Old Style', serif" fill="#2c2418">VVC</text>
+                <text x="60" y="86" text-anchor="middle" font-size="12" font-family="Garamond, 'Bookman Old Style', serif" fill="#2c2418">Cogitavi</text>
+              </svg>
+            </div>
+            <div class="mission-copy">
+              <p class="eyebrow">Vini Vidi Cogitavi</p>
+              <h1>Vini Vidi Cogitavi</h1>
+              <p class="mission">
+                A nonpartisan forum for live, structured debates on issues and platforms for upcoming campaigns, welcoming
+                civic-minded voices across every community.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="container nav-wrap">
+        <nav class="site-nav" aria-label="Primary">
+          <a href="#">Campaign Access</a>
+          <a href="#">Previous Debates</a>
+          <a href="#">Position Papers</a>
+          <a href="#">Campaign Contributions</a>
+          <a href="#">About Us</a>
+          <a href="#" class="nav-blog">Political Blog</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="section reveal">
+        <div class="section-head">
+          <h2>Campaign Access</h2>
+          <p>Select a campaign and confirm your participation tier to enter the live debate.</p>
+        </div>
+        <div class="grid two">
+          <div class="card">
+            <h3>Choose Your Campaign</h3>
+            <label class="field">
+              <span>Campaign focus</span>
+              <select>
+                <option>City Council - Ward 3</option>
+                <option>County Executive</option>
+                <option>State Senate - District 12</option>
+                <option>Governor</option>
+                <option>U.S. House - District 7</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Election cycle</span>
+              <select>
+                <option>2026 General</option>
+                <option>2026 Primary</option>
+                <option>2025 Special</option>
+              </select>
+            </label>
+            <button class="btn">Enter the Live Debate</button>
+          </div>
+          <div class="card">
+            <h3>Participation Tiers</h3>
+            <ol class="tiers">
+              <li><strong>Tier 1</strong> Registered to vote within the debate boundaries.</li>
+              <li><strong>Tier 2</strong> Registered to vote at the next governmental level (city to county to state).</li>
+              <li><strong>Tier 3</strong> Registered to vote in the U.S.</li>
+              <li><strong>Tier 4</strong> Unregistered.</li>
+            </ol>
+            <p class="hint">Participation access unlocks progressively after residency validation.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal">
+        <div class="section-head">
+          <h2>Debate Verification APIs</h2>
+          <p>Validate voter status nationwide and surface every election by level and location.</p>
+        </div>
+        <div class="grid two">
+          <div class="card api-card">
+            <h3>Voter Registration Validation</h3>
+            <p>Confirm registration for the election being debated, regardless of the user's location.</p>
+            <pre><code>GET /api/v1/voters/validate
+{ "state": "CA", "electionId": "2026-gen-001", "lastName": "Nguyen" }</code></pre>
+            <button class="btn ghost">Verify Registration</button>
+          </div>
+          <div class="card api-card">
+            <h3>Nationwide Election Directory</h3>
+            <p>Return all U.S. elections organized by governmental level and location.</p>
+            <pre><code>GET /api/v1/elections
+?level=city|county|state|federal&amp;location=zip|county|state</code></pre>
+            <button class="btn ghost">View Election Listings</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal">
+        <div class="section-head">
+          <h2>Political Blog</h2>
+          <p>Editorials, policy explainers, and candidate platform deep dives.</p>
+        </div>
+        <div class="grid three">
+          <a class="card link-card" href="#">
+            <h3>Policy Briefs</h3>
+            <p>Short, neutral summaries of ballot measures and legislation.</p>
+          </a>
+          <a class="card link-card" href="#">
+            <h3>Issue Debates</h3>
+            <p>Highlight clips and transcripts from live discussions.</p>
+          </a>
+          <a class="card link-card" href="#">
+            <h3>Local Dispatch</h3>
+            <p>Regional reporting from city halls, county boards, and statehouses.</p>
+          </a>
+        </div>
+      </section>
+
+      <section class="section reveal">
+        <div class="section-head">
+          <h2>Debate Resources</h2>
+          <p>Navigate the debate archive, campaign documents, and contribution tools.</p>
+        </div>
+        <div class="grid two">
+          <div class="card">
+            <h3>Previous Debates</h3>
+            <label class="field">
+              <span>Search by location</span>
+              <input type="text" placeholder="City, county, or state" />
+            </label>
+            <label class="field">
+              <span>Search by election</span>
+              <input type="text" placeholder="Election name or year" />
+            </label>
+            <button class="btn ghost">Search Debate Archive</button>
+          </div>
+          <div class="card">
+            <h3>Campaign Tools</h3>
+            <ul class="link-list">
+              <li><a href="#">Position Papers</a></li>
+              <li><a href="#">Campaign Contributions</a></li>
+              <li><a href="#">About Us</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>c 2026 Vini Vidi Cogitavi</p>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
