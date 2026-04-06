@@ -38,14 +38,23 @@
         </div>
       </section>
       <div class="container nav-wrap">
-        <nav class="site-nav" aria-label="Primary">
-          <a href="#">Campaign Access</a>
-          <a href="#">Previous Debates</a>
-          <a href="#">Position Papers</a>
-          <a href="#">Campaign Contributions</a>
-          <a href="#">About Us</a>
-          <a href="#" class="nav-blog">Political Blog</a>
-        </nav>
+        <div class="nav-row">
+          <nav class="site-nav" aria-label="Primary">
+            <a href="#">Campaign Access</a>
+            <a href="#">Previous Debates</a>
+            <a href="#">Position Papers</a>
+            <a href="#">Campaign Contributions</a>
+            <a href="#">About Us</a>
+            <a href="#" class="nav-blog">Political Blog</a>
+          </nav>
+          <div class="auth-actions" aria-live="polite">
+            <a href="login.html" class="btn auth-btn" id="loginLink">Log In</a>
+            <div class="profile-area" id="profileArea" hidden>
+              <button class="btn auth-btn ghost" id="profileButton" type="button">Profile</button>
+              <button class="btn auth-btn" id="logoutButton" type="button">Log Out</button>
+            </div>
+          </div>
+        </div>
       </div>
     </header>
 
@@ -171,6 +180,7 @@
       </div>
     </footer>
 
+    <script src="js/auth.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>

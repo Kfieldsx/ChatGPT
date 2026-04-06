@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Create Account | Vini Vidi Cogitavi</title>
+    <meta name="description" content="Create an account for Vini Vidi Cogitavi" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <section class="mission-hero">
+        <div class="container">
+          <div class="mission-card">
+            <a class="hero-badge home-link" href="index.html" aria-label="Return to home page">
+              <svg viewBox="0 0 64 64" role="img" aria-hidden="true">
+                <path
+                  d="M11 30.5 32 13l21 17.5"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="4"
+                />
+                <path
+                  d="M18 28v22h28V28"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="4"
+                />
+                <path
+                  d="M27 50V36h10v14"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="4"
+                />
+              </svg>
+            </a>
+            <div class="mission-copy">
+              <p class="eyebrow">Vini Vidi Cogitavi</p>
+              <h1>Create Account</h1>
+              <p class="mission">Set up your account to participate in structured civic debates.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </header>
+
+    <main class="container auth-main">
+      <section class="auth-shell">
+        <div class="auth-card">
+          <h2>Sign Up</h2>
+          <p class="auth-subtitle">Create your User ID and password.</p>
+          <form id="signupForm" novalidate>
+            <label class="field" for="userId">
+              <span>User ID</span>
+              <input id="userId" name="userId" type="text" autocomplete="username" required />
+            </label>
+            <p class="form-error" id="userIdError" aria-live="polite"></p>
+
+            <label class="field" for="password">
+              <span>Password</span>
+              <input id="password" name="password" type="password" autocomplete="new-password" required />
+            </label>
+            <ul class="rules" id="passwordRules" aria-live="polite">
+              <li data-rule="length">At least 9 characters</li>
+              <li data-rule="uppercase">At least 1 uppercase letter</li>
+              <li data-rule="number">At least 1 number</li>
+              <li data-rule="special">At least 1 special character</li>
+            </ul>
+            <p class="form-error" id="passwordError" aria-live="polite"></p>
+
+            <label class="field" for="confirmPassword">
+              <span>Confirm Password</span>
+              <input id="confirmPassword" name="confirmPassword" type="password" autocomplete="new-password" required />
+            </label>
+            <p class="form-error" id="confirmPasswordError" aria-live="polite"></p>
+            <p class="form-error" id="signupError" aria-live="polite"></p>
+            <p class="form-ok" id="signupOk" aria-live="polite"></p>
+
+            <div class="auth-actions-row">
+              <button class="btn" type="submit">Create Account</button>
+              <a class="inline-link" href="login.html">Back to log in</a>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>c 2026 Vini Vidi Cogitavi</p>
+      </div>
+    </footer>
+
+    <script src="js/auth.js"></script>
+    <script src="js/signup.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
