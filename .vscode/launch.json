@@ -8,9 +8,9 @@
         
         
         {
-            "type": "chrome",
+            "type": "node",
             "request": "launch",
-            "name": "Launch Chrome against localhost",
+            "name": "Launch Node against localhost",
             "url": "http://localhost:8080",
             "webRoot": "${workspaceFolder}"
         }
